@@ -15,7 +15,7 @@ public class LenderController {
         return "lenders";
     }
 
-    @RequestMapping(value = "/lenders/lenders-create", method = RequestMethod.GET)
+    @RequestMapping(value = "/lenders-create", method = RequestMethod.GET)
     public String getLendersCreate() {
         return "lenders-create";
     }

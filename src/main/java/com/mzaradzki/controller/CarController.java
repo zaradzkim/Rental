@@ -16,7 +16,7 @@ public class CarController {
         return "cars";
     }
 
-    @RequestMapping(value = "/car/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/car-create", method = RequestMethod.GET)
     public String getCreateCar() {
         return "car-create";
     }

@@ -20,6 +20,21 @@
                     <input type="text" id="lastName" class="form-control" placeholder="Enter last name" autofocus>
                 </div>
             </div>
+
+               <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Email:</label>
+                            <div class="col-sm-6">
+                                <input type="email" id="email" class="form-control" placeholder="Enter email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="password">Password:</label>
+                            <div class="col-sm-6">
+                                <input type="password" id="password" class="form-control" placeholder="Enter password">
+                            </div>
+                        </div>
+
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-6">
                     <button type="submit" class="btn btn-primary">Save</button>

@@ -26,4 +26,9 @@ public class MainController {
     public String getCreatePage() {
         return "register";
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String getLogoutPage(){
+        return "login";
+    }
 }

@@ -14,8 +14,8 @@
                     <th class="text-center col-md-1">Id</th>
                     <th class="text-center">Date rent</th>
                     <th class="text-center">Date return</th>
-                    <th class="text-center">User</th>
-                    <th class="text-center">Book</th>
+                    <th class="text-center">Lender</th>
+                    <th class="text-center">Car</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,8 +23,8 @@
                         <td>1</td>
                         <td>2016-10-30</td>
                         <td>2016-10-30</td>
-                        <td>Wojciech Musial</td>
-                        <td>jaka ksiazka</td>
+                        <td>Marcel Zaradzki</td>
+                        <td>jakis samochod</td>
                     </tr>
                 </tbody>
             </table>

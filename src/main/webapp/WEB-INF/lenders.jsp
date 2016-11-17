@@ -20,9 +20,9 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Wojciech</td>
-                        <td>Musial</td>
-                        <td>wojtek@niepodam.pl</td>
+                        <td>Marcel</td>
+                        <td>Zaradzk</td>
+                        <td>marcel@niepodam.pl</td>
                     </tr>
                 </tbody>
             </table>

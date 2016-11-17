@@ -1,6 +1,11 @@
 package com.mzaradzki.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -14,16 +19,22 @@ import java.util.Properties;
 /**
  * Created by Marcel on 2016-11-15.
  */
+
+@Configuration
+@PropertySource(value = {"classpath:hibernate.properties"})
+@EnableJpaRepositories(basePackages = "com.mzaradzki.dao")
+
+
 public class HibernateConfig {
 
 
 
-        //    @Autowired
+        @Autowired
         private Environment environment;
 
         // 1. DataSource
 
-        //    @Bean
+        @Bean
         public DataSource dataSource() {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driver.class.name"));
@@ -36,7 +47,7 @@ public class HibernateConfig {
 
         // 2. EntityManagerFactory
 
-        //    @Bean
+        @Bean
         public EntityManagerFactory entityManagerFactory() {
 
             HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -48,7 +59,7 @@ public class HibernateConfig {
             properties.put("hibernate.generate_statistics", environment.getProperty("hibernate.generate_statistics"));
 
             LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-            factoryBean.setPackagesToScan("com.wmusial.model");
+            factoryBean.setPackagesToScan("com.mzaradzki.model");
             factoryBean.setJpaVendorAdapter(vendorAdapter);
             factoryBean.setJpaProperties(properties);
             factoryBean.setDataSource(dataSource());
@@ -58,7 +69,7 @@ public class HibernateConfig {
         }
 
         // 3. PlatformTransactionManager
-//    @Bean
+        @Bean
         public PlatformTransactionManager transactionManager() {
             JpaTransactionManager transactionManager = new JpaTransactionManager();
             transactionManager.setEntityManagerFactory(entityManagerFactory());
@@ -67,4 +78,6 @@ public class HibernateConfig {
 
 
     }
+
+
 
