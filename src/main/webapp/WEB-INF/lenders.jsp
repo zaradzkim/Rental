@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
 
-                    <c:forEach items="${usersList}" var="user">
+                    <c:forEach items="${usersList}" var="user"> <!-- for each to add as many users as there are in the database  -->
                     <tr>
                         <td>${user.id}</td>
                         <td>${user.firstName}</td>

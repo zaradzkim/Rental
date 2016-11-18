@@ -21,7 +21,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http
+                .authorizeRequests()
+                    .antMatchers("/login").permitAll() //dont need account
+                    .antMatchers("register").permitAll()
+                    .antMatchers("/resources/**").permitAll()
+                    .antMatchers("/**").authenticated() //others require logging
+                .and()
+                .formLogin()   //configuration of login page
+                    .usernameParameter("email")
+                    .passwordParameter("password")
+                    .loginPage("/login") //adress when user isn't authorizated and add my login page
+                    .loginProcessingUrl("/login") //definition of adress where send post from login page
+                .and()
+                .logout()
+                    .logoutUrl("/logout") //what adress to post when user logout
+                    .logoutSuccessUrl("/login?logout")  // when user logout, go to page login, ?logout forexample for page with information "Logout success"
+                .and()
+                .csrf() //cross site request forgery
+                    .disable();
+
     }
 
     @Override

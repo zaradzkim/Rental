@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException { //login by email
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException { //logging by email
 
         User user = userDao.findByEmail(email); //look for user with email in database
 

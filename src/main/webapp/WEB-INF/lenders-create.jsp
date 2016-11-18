@@ -7,7 +7,7 @@
 
 <div class="container">
 
-    <c:if test="${user.id == null}">  <!-- change for create or edit page -->
+    <c:if test="${user.id == null}">  <!-- change when is create or edit page -->
         <h1>Create Lender</h1>
     </c:if>
 
