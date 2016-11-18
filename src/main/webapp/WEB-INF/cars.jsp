@@ -13,7 +13,7 @@
                 <thead>
                 <tr>
                     <th class="text-center col-md-1">Id</th>
-                    <th class="text-center">Marka</th>
+                    <th class="text-center">Mark</th>
                     <th class="text-center">Model</th>
 
                 </tr>

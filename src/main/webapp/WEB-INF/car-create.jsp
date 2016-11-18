@@ -3,6 +3,8 @@
 <%@ include file="/WEB-INF/include/navbar.jsp" %>
 
 
+
+
 <div class="container">
 
     <h1>Create car</h1>
@@ -11,15 +13,15 @@
         <form role="form" class="form-horizontal">
             <input type="hidden" name="id" value=""/>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="author">Mark:</label>
+                <label class="control-label col-sm-2" for="mark">Mark:</label>
                 <div class="col-sm-6">
-                    <input type="text" id="author" class="form-control" placeholder="Enter mark" autofocus>
+                    <input type="text" id="mark" class="form-control" placeholder="Enter mark" autofocus>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="title">Model:</label>
+                <label class="control-label col-sm-2" for="model">Model:</label>
                 <div class="col-sm-6">
-                    <input type="text" id="title" class="form-control" placeholder="Enter model">
+                    <input type="text" id="model" class="form-control" placeholder="Enter model">
                 </div>
             </div>
             <div class="form-group">
