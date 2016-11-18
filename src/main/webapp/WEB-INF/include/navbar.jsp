@@ -6,14 +6,15 @@
 <c:url value="/cars" var="carsURL"/>
 <c:url value="/rents" var="rentsURL"/>
 <c:url value="/logout" var="loginURL"/>
+<c:url value="/" var="mainURL"/>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Rental</a>
+      <a class="navbar-brand" href="${mainURL}">Rental</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Main</a></li>
+      <li class="active"><a href="${rentsURL}">MyRents</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lenders
         <span class="caret"></span></a>
@@ -30,7 +31,6 @@
       <li><a href="${carsURL}">Show all</a></li>
     </ul>
   </li>
-  <li><a href="${carsURL}">My Rents</a></li>
 </ul>
      <ul class="nav navbar-nav navbar-right">
     <li><a href="${loginURL}"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>

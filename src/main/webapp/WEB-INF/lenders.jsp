@@ -3,6 +3,7 @@
 <%@ include file="/WEB-INF/include/navbar.jsp" %>
 
 <c:url value ="/lenders/delete" var = "deleteUserURL"/>
+<c:url value ="/lenders/edit" var = "editUserURL" />
 
 <div class="container">
 
@@ -17,7 +18,8 @@
                     <th class="text-center">First Name</th>
                     <th class="text-center">Last Name</th>
                     <th class="text-center col-md-1">Email</th>
-                    <th class="text-center col-md-1">Action</th>
+                    <th class="text-center col-md-1">Edit</th>
+                    <th class="text-center col-md-1">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +30,7 @@
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
                         <td>${user.email}</td>
+                        <td> <a href="${editUserURL}/${user.id}" class="btn btn-primary">Edit</a></td>
                         <td> <a href="${deleteUserURL}/${user.id}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     </c:forEach>
@@ -46,7 +49,7 @@
 
         $('.delete-btn').on('click', function(event) {
             event.preventDefault();
-            console.log("Przycisk klienty, a jego href to: " + event.target.href);
+            console.log("Przycisk klienty, a jego href to: " + event.target.href); <!-- JQuery and JavaScript for metod POST to delete lender from list -->
 
             // $.
             // jQuery.

@@ -14,7 +14,7 @@ public class User {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement id for database
     private Long id;
 
     @Column(name = "first_name", nullable = false, length = 255)

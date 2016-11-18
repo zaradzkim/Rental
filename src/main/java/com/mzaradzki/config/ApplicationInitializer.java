@@ -3,6 +3,7 @@ package com.mzaradzki.config;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
@@ -20,7 +21,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
         applicationContext.register(AppConfig.class);
 
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(applicationContext);
+        DispatcherServlet dispatcherServlet = new DispatcherServlet(applicationContext); //new servlet
 
         ServletRegistration.Dynamic servletRegistration
                 = servletContext.addServlet("dispatcher", dispatcherServlet);
@@ -33,5 +34,9 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         characterEncodingFilter.setForceEncoding(true);
         servletContext.addFilter("characterEncodingFilter", characterEncodingFilter)
                 .addMappingForUrlPatterns(null, true, "/*");
+
+        DelegatingFilterProxy delegatingFilterProxy = new DelegatingFilterProxy();
+        servletContext.addFilter("springSecurityFilterChain", delegatingFilterProxy) //spring security
+                .addMappingForUrlPatterns(null, true, "/*"); //all request
     }
 }

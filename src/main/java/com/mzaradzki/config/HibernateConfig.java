@@ -37,7 +37,7 @@ public class HibernateConfig {
         @Bean
         public DataSource dataSource() {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
-            dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driver.class.name"));
+            dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driver.class.name")); //hibernate configuration for database
             dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
             dataSource.setUsername(environment.getRequiredProperty("jdbc.user.name"));
             dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
@@ -50,7 +50,7 @@ public class HibernateConfig {
         @Bean
         public EntityManagerFactory entityManagerFactory() {
 
-            HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+            HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();  //connect spring with hibernate
 
             Properties properties = new Properties();
             properties.put("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
@@ -59,7 +59,7 @@ public class HibernateConfig {
             properties.put("hibernate.generate_statistics", environment.getProperty("hibernate.generate_statistics"));
 
             LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-            factoryBean.setPackagesToScan("com.mzaradzki.model");
+            factoryBean.setPackagesToScan("com.mzaradzki.model"); //mapping models for tables in database
             factoryBean.setJpaVendorAdapter(vendorAdapter);
             factoryBean.setJpaProperties(properties);
             factoryBean.setDataSource(dataSource());
@@ -71,7 +71,7 @@ public class HibernateConfig {
         // 3. PlatformTransactionManager
         @Bean
         public PlatformTransactionManager transactionManager() {
-            JpaTransactionManager transactionManager = new JpaTransactionManager();
+            JpaTransactionManager transactionManager = new JpaTransactionManager(); //transaction for database and web pages
             transactionManager.setEntityManagerFactory(entityManagerFactory());
             return transactionManager;
         }

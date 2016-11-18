@@ -26,7 +26,7 @@ public class LenderController {
     public String getLendersPage(Model model) {
 
         List<User> users = userDao.findAll();
-        model.addAttribute("usersList", users);
+        model.addAttribute("usersList", users); //list with lenders in web page from database
 
         return "lenders";
     }
@@ -53,6 +53,21 @@ public class LenderController {
 
         userDao.delete(id);
 
+        return "redirect:/lenders";
+    }
+
+    @RequestMapping(value = "/lenders/edit/{id}", method = RequestMethod.GET)
+    public String editLender(@PathVariable Long id, Model model) {
+
+        User user = userDao.findOne(id);
+
+        model.addAttribute("user", user);
+
+        return "lenders-create";
+    }
+
+    @RequestMapping(value = "/lenders-create/cancel", method = RequestMethod.GET)
+    public String cancelEdit() {
         return "redirect:/lenders";
     }
 }
