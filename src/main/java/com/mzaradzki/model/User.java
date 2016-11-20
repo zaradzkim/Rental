@@ -1,5 +1,6 @@
 package com.mzaradzki.model;
 
+import com.mzaradzki.api.UserDto;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
@@ -10,6 +11,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user")
 public class User {
+
+    public User(UserDto userDto) {
+        id = userDto.getId();
+        email = userDto.getEmail();
+        firstName = userDto.getFirstName(); //costructor for userRestController
+        lastName = userDto.getLastName();
+        password = "1234";
+    }
 
     public enum Role{
         USER, ADMIN
@@ -39,7 +48,7 @@ public class User {
     private Role role = Role.USER; //default role user, amin changing in the database
 
 
-    public User(){
+    public User(){ //empty constructor, specification from JPA requaierd this
 
     }
 

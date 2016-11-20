@@ -26,6 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/login").permitAll() //dont need account
                     .antMatchers("/register").permitAll()
                     .antMatchers("/resources/**").permitAll()
+                    .antMatchers("/lenders/**, /lenders-create").hasRole("ADMIN") //block this pages when user with role user type this pages at belt browser
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("api/**").permitAll() //api allow for all
                     .antMatchers("/**").authenticated() //others require logging
                 .and()
                 .formLogin()   //configuration of login page
@@ -45,6 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService); //checking email and password with UserServiceImpl and UserService interface for Spring security
+        auth.userDetailsService(userService); //checking email and password with UserServiceImpl and UserService interface from Spring security
     }
 }
