@@ -16,8 +16,9 @@
     </div>
     <ul class="nav navbar-nav">
 
-      <sec:authorize access="hasRole('ADMIN')"> <!-- show Lenders when user have role admin -->
+
       <li class="active"><a href="${rentsURL}">MyRents</a></li>
+      <sec:authorize access="hasRole('ADMIN')"> <!-- show Lenders when user have role admin -->
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lenders
         <span class="caret"></span></a>

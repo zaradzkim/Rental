@@ -31,7 +31,7 @@
                         <td>${user.lastName}</td>
                         <td>${user.email}</td>
                         <td> <a href="${editUserURL}/${user.id}" class="btn btn-primary">Edit</a></td>
-                        <td> <a href="${deleteUserURL}/${user.id}" class="btn btn-danger">Delete</a></td>
+                        <td> <a href="${deleteUserURL}/${user.id}" class="btn btn-danger delete-btn">Delete</a></td>
                     </tr>
                     </c:forEach>
                 </tbody>

@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user")
-public class User {
+public class User extends BaseEntity {
 
     public User(UserDto userDto) {
         id = userDto.getId();
@@ -24,9 +24,7 @@ public class User {
         USER, ADMIN
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement id for database
-    private Long id;
+
 
     @Column(name = "first_name", nullable = false, length = 255)
     private String firstName;

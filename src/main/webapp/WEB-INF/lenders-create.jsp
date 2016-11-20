@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="firstName">First name:</label>
                 <div class="col-sm-6">
-                    <input value="${user.firstName}" input name="firstName" type="text" id="firstName" class="form-control" placeholder="Enter first name" autofocus>
+                    <input value="${user.firstName}" name="firstName" type="text" id="firstName" class="form-control" placeholder="Enter first name" autofocus>
                 </div>
             </div>
             <div class="form-group">
