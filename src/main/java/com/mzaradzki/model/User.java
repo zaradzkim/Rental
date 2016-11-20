@@ -11,7 +11,9 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
-
+    public enum Role{
+        USER, ADMIN
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement id for database
@@ -29,6 +31,13 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role = Role.USER; //default role user, amin changing in the database
+
 
     public User(){
 
@@ -84,5 +93,13 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

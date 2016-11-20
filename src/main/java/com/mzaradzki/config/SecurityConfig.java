@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/login").permitAll() //dont need account
-                    .antMatchers("register").permitAll()
+                    .antMatchers("/register").permitAll()
                     .antMatchers("/resources/**").permitAll()
                     .antMatchers("/**").authenticated() //others require logging
                 .and()

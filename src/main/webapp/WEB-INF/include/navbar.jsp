@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <c:url value="/lenders" var="lendersURL"/>
 <c:url value="/lenders-create" var="createLenderURL"/>
@@ -14,6 +15,8 @@
       <a class="navbar-brand" href="${mainURL}">Rental</a>
     </div>
     <ul class="nav navbar-nav">
+
+      <sec:authorize access="hasRole('ADMIN')"> <!-- show Lenders when user have role admin -->
       <li class="active"><a href="${rentsURL}">MyRents</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lenders
@@ -23,6 +26,9 @@
           <li><a href="${lendersURL}">Show all</a></li>
           </ul>
       </li>
+      </sec:authorize>
+
+
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cars
         <span class="caret"></span></a>
@@ -33,7 +39,16 @@
   </li>
 </ul>
      <ul class="nav navbar-nav navbar-right">
-    <li><a href="${loginURL}"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <sec:authentication property ="principal.username"/> <!-- show email user when log in -->
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li>
+            <a href="${loginURL}"><span class="glyphicon glyphicon-log-in"></span>Logout</a>
+            </li>
+          </ul>
+      </li>
     </ul>
   </div>
 </nav>
