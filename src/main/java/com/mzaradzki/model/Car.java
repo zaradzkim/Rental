@@ -23,7 +23,7 @@ public class Car extends BaseEntity {
     private String model;
 
     @Min(0) // not allowed negative numbers
-    private Integer avaible; //TODO: Rename avaible for avaiable
+    private Integer avaible;
 
     public Car(){
 

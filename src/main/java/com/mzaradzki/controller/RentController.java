@@ -65,6 +65,11 @@ public class RentController {
         Car car = carDao.findOne(carId);
         User user = userDao.findByEmail(email);
 
+        if(car.getAvaible() <= 0) {
+            redirectAttributes.addFlashAttribute("cantRent", true);
+            return "redirect:/cars";
+        }
+
         rentService.createRent(user, car);
 
         return "redirect:/rents";

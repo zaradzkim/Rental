@@ -14,5 +14,5 @@ import java.util.List;
 @Repository
 public interface RentDao extends JpaRepository<Rent, Long> {
 
-    List<Rent> findByUserOrderByCreatedDateDesc(User user); //finding for user rents, and show only this user rents, not all users
+    List<Rent> findByUserOrderByCreatedDateDesc(User user);
 }

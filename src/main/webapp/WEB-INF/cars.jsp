@@ -6,6 +6,12 @@
 <c:url value="/car/edit" var="editCarURL"/>
 <c:url value="rent/car" var="rentURL"/>
 
+<c:if test="${cantRent}">
+    <div class="alert alert-danger">
+        You cant rent this car!
+    </div>
+</c:if>
+
 <div class="container">
 
     <h1>List of cars</h1>
@@ -32,9 +38,20 @@
                         <td>${car.mark}</td>
                         <td>${car.model}</td>
                         <td>${car.avaible}</td>
-                        <td> <a href="${deleteCarURL}/${car.id}" class="btn btn-danger delete-btn">Delete</a></td>
-                        <td> <a href="${editCarURL}/${car.id}" class="btn btn-primary">Edit</a></td>
-                        <td> <a href="${rentURL}/${car.id}" class="btn btn-info btn-sm">Rent</a></td>
+                        <td class ="text-center"> <a href="${deleteCarURL}/${car.id}" class="btn btn-danger delete-btn">Delete</a></td>
+                        <td class ="text-center"> <a href="${editCarURL}/${car.id}" class="btn btn-primary">Edit</a></td>
+
+                        <td class ="text-center">
+
+                        <c:choose>
+                            <c:when test="${book.available > 0}">
+                                <a href="${rentURL}/${car.id}" class="btn btn-info btn-sm">Rent</a> <!-- hides btn rent when available is null -->
+                            </c:when>
+                            <c:otherwise>
+                            empty
+                            </c:otherwise>
+                        </c:choose>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

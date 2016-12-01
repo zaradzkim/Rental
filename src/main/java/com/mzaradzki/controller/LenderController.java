@@ -51,7 +51,7 @@ public class LenderController {
     @RequestMapping(value = "/lenders/delete/{id}", method = RequestMethod.POST)
     public String deleteLender(@PathVariable Long id) {
 
-        userDao.delete(id); //TODO: error 405
+        userDao.delete(id);
 
         return "redirect:/lenders";
     }
